@@ -1,0 +1,1762 @@
+/* ============================================
+   MODERN MEDICAL PORTFOLIO - CSS STYLING
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0099ff;
+    --secondary-color: #0044cc;
+    --accent-color: #ff6b9d;
+    --medical-green: #1fb4c7;
+    --medical-red: #ff6b9d;
+    --hospital-blue: #00ccff;
+    --light-bg: #f0f7ff;
+    --dark-text: #1a1a1a;
+    --border-color: #b3d9ff;
+    --success-color: #27ae60;
+    --warning-color: #e67e22;
+    --shadow: 0 10px 30px rgba(0, 153, 255, 0.12);
+    --shadow-hover: 0 15px 40px rgba(0, 153, 255, 0.18);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-text);
+    background: #ffffff;
+    line-height: 1.6;
+}
+
+/* ============================================
+   NAVIGATION BAR
+   ============================================ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #e6f3ff 0%, #cce6ff 100%);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0, 153, 255, 0.15);
+    padding: 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #0099ff;
+    border: 2px solid #0099ff;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    min-width: 50px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 153, 255, 0.1), rgba(0, 204, 255, 0.05));
+}
+
+.medical-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.medical-logo i {
+    font-size: 1.5rem;
+    animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.15); }
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link i {
+    font-size: 1.1rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link:active::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #0099ff;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    margin-top: 70px;
+    padding: 100px 2rem;
+    background: linear-gradient(135deg, #e6f7ff 0%, #cce6ff 50%, #b3d9ff 100%);
+    color: #0044cc;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-label {
+    display: none;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.08;
+    z-index: 0;
+}
+
+.floating-shape {
+    position: absolute;
+    animation: float 6s ease-in-out infinite;
+}
+
+.medical-dna {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 153, 255, 0.4), rgba(0, 153, 255, 0.1));
+    top: -100px;
+    right: -100px;
+    border-radius: 50%;
+    animation-delay: 0s;
+}
+
+.medical-pulse {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 204, 255, 0.5), transparent);
+    bottom: -50px;
+    left: 10%;
+    border-radius: 50%;
+    animation: pulse-glow 2s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.medical-cross {
+    width: 150px;
+    height: 150px;
+    background: #0099ff;
+    top: 50%;
+    right: 10%;
+    clip-path: polygon(40% 0%, 60% 0%, 60% 40%, 100% 40%, 100% 60%, 60% 60%, 60% 100%, 40% 100%, 40% 60%, 0% 60%, 0% 40%, 40% 40%);
+    animation-delay: 2s;
+}
+
+.ekg-line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 30%;
+    left: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        #0099ff 25%,
+        transparent 35%,
+        #0099ff 40%,
+        transparent 50%,
+        #0099ff 55%,
+        transparent 65%,
+        #0099ff 70%,
+        transparent 80%);
+    opacity: 0.4;
+    animation: ekg-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ekg-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 204, 255, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 30px rgba(0, 204, 255, 0);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+}
+
+.hero-text {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #0066cc;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #0066cc;
+    max-width: 500px;
+    line-height: 1.8;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.pulse-icon {
+    font-size: 1.5rem;
+    animation: heartbeat 1.2s ease-in-out infinite;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+.btn-primary:hover {
+    background: #c21f3a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.5);
+}
+
+.btn-secondary {
+    background: rgba(0, 153, 255, 0.2);
+    color: #0066cc;
+    border: 2px solid #0099ff;
+}
+
+.btn-secondary:hover {
+    background: #0099ff;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.hero-social {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeInRight 0.8s ease-out;
+}
+
+.social-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(0, 153, 255, 0.15);
+    color: #0099ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: var(--transition);
+    border: 2px solid rgba(0, 153, 255, 0.3);
+    text-decoration: none;
+}
+
+.medical-icon {
+    position: relative;
+}
+
+.medical-icon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.medical-icon:hover {
+    background: #0099ff;
+    color: white;
+    transform: translateY(-5px) scale(1.1);
+    border-color: #0099ff;
+    box-shadow: 0 10px 25px rgba(0, 153, 255, 0.4);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================
+   CONTAINER & LAYOUT
+   ============================================ */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ============================================
+   SECTION STYLING
+   ============================================ */
+
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--dark-text);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* ============================================
+   ABOUT SECTION - MEDICAL PROFILE
+   ============================================ */
+
+.about {
+    background: var(--light-bg);
+}
+
+.medical-profile {
+    position: relative;
+}
+
+.medical-profile::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
+    opacity: 0.3;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.medical-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    border-top: 3px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.vital-sign {
+    background: linear-gradient(135deg, rgba(45, 134, 89, 0.05), rgba(220, 53, 69, 0.05));
+}
+
+.stat-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent-color);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: var(--transition);
+}
+
+.stat-box:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+}
+
+.stat-box:hover::before {
+    transform: scaleY(1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: #888;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.medical-credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.credential-box {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.credential-icon {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    min-width: 40px;
+    text-align: center;
+}
+
+.credential-box:hover {
+    border-left-color: var(--accent-color);
+    transform: translateX(10px);
+}
+
+.info-item > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    display: block;
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    display: block;
+    color: var(--dark-text);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* ============================================
+   EXPERIENCE SECTION - MEDICAL TIMELINE
+   ============================================ */
+
+.experience {
+    background: white;
+}
+
+.medical-journey {
+    position: relative;
+}
+
+.medical-timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.medical-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, 
+        var(--primary-color) 0%, 
+        var(--medical-green) 25%,
+        var(--accent-color) 50%,
+        var(--medical-green) 75%,
+        var(--primary-color) 100%);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    direction: rtl;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    direction: ltr;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    top: 25px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-shadow: 0 0 0 4px var(--light-bg);
+    animation: pulse-marker 2s ease-in-out infinite;
+}
+
+@keyframes pulse-marker {
+    0%, 100% { box-shadow: 0 0 0 4px var(--light-bg); }
+    50% { box-shadow: 0 0 0 8px rgba(27, 110, 79, 0.2); }
+}
+
+.timeline-date {
+    text-align: right;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    text-align: left;
+    justify-content: flex-start;
+}
+
+.medical-post {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.medical-post::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: var(--transition);
+}
+
+.medical-post:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-10px);
+}
+
+.medical-post:hover::before {
+    transform: scaleY(1);
+}
+
+.post-title {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.post-title i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.hospital-name {
+    color: var(--medical-green);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.timeline-content li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.8rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.timeline-content li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   EDUCATION SECTION - MEDICAL EDUCATION
+   ============================================ */
+
+.education {
+    background: var(--light-bg);
+}
+
+.medical-education::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
+    opacity: 0.3;
+}
+
+.medical-degrees {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.degree-capsule {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.degree-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--medical-green));
+}
+
+.degree-capsule::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), transparent);
+    opacity: 0.05;
+    border-radius: 50%  0 0 0;
+}
+
+.degree-capsule:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-hover);
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.degree-icon {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    min-width: 50px;
+}
+
+.degree-duration {
+    background: linear-gradient(135deg, var(--primary-color), var(--medical-green));
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 3px 10px rgba(27, 110, 79, 0.2);
+}
+
+.education-card h3 {
+    color: var(--dark-text);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.institution {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.degree-status,
+.cgpa {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(45, 134, 89, 0.1), rgba(220, 53, 69, 0.05));
+    color: var(--primary-color);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    border: 1px solid rgba(45, 134, 89, 0.2);
+}
+
+.degree-status.ongoing {
+    background: rgba(45, 134, 89, 0.1);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* ============================================
+   SKILLS SECTION - MEDICAL EXPERTISE
+   ============================================ */
+
+.skills {
+    background: white;
+}
+
+.medical-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.expertise-domain {
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(45, 134, 89, 0.03), rgba(220, 53, 69, 0.02));
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    transition: var(--transition);
+    border-left: 5px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.expertise-domain::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--primary-color), transparent);
+    opacity: 0.05;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.expertise-domain:hover {
+    transform: translateX(10px) translateY(-5px);
+    box-shadow: var(--shadow);
+    border-left-color: var(--accent-color);
+}
+
+.expertise-domain h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 1;
+}
+
+.expertise-domain i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 1;
+}
+
+.skill-tag {
+    display: inline-block;
+    background: white;
+    color: var(--primary-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 2px solid var(--primary-color);
+    transition: var(--transition);
+    cursor: default;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.skill-tag:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(27, 110, 79, 0.2);
+}
+
+/* ============================================
+   ACHIEVEMENTS SECTION - MEDICAL MILESTONES
+   ============================================ */
+
+.achievements {
+    background: linear-gradient(135deg, var(--light-bg) 0%, rgba(220, 53, 69, 0.02) 100%);
+}
+
+.milestone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.milestone-badge {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.milestone-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+}
+
+.milestone-badge:hover {
+    transform: translateY(-15px) rotate(-1deg);
+    box-shadow: var(--shadow-hover);
+}
+
+.milestone-badge:hover::before {
+    transform: scaleX(1);
+}
+
+.medal-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: bounce-medal 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 5px rgba(220, 53, 69, 0.2));
+}
+
+.achievement-card:nth-child(1) .medal-icon { animation-delay: 0s; }
+.achievement-card:nth-child(2) .medal-icon { animation-delay: 0.15s; }
+.achievement-card:nth-child(3) .medal-icon { animation-delay: 0.3s; }
+.achievement-card:nth-child(4) .medal-icon { animation-delay: 0.45s; }
+.achievement-card:nth-child(5) .medal-icon { animation-delay: 0.6s; }
+.achievement-card:nth-child(6) .medal-icon { animation-delay: 0.75s; }
+.achievement-card:nth-child(7) .medal-icon { animation-delay: 0.9s; }
+.achievement-card:nth-child(8) .medal-icon { animation-delay: 1.05s; }
+.achievement-card:nth-child(9) .medal-icon { animation-delay: 1.2s; }
+
+@keyframes bounce-medal {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.1);
+    }
+}
+
+.achievement-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.achievement-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ============================================
+   CONTACT SECTION - MEDICAL CONSULTATION
+   ============================================ */
+
+.contact {
+    background: linear-gradient(135deg, #0099ff 0%, #0077cc 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05), transparent);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+.medical-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.medical-contact-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: var(--transition);
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.medical-contact-item:hover {
+    transform: translateX(10px);
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.4);
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.medical-contact-item:hover .contact-icon {
+    background: white;
+    color: var(--primary-color);
+    transform: rotate(15deg) scale(1.1);
+}
+
+.contact-item h3 {
+    color: white;
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+}
+
+.contact-item p {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.95rem;
+}
+
+.contact-item a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.contact-item a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.medical-form {
+    background: rgba(255,255,255,0.1);
+    padding: 2.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    border-color: white;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-item h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-item a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-item a:hover {
+    color: var(--accent-color);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
+    transform: scale(1.02);
+}
+
+.contact-form .btn {
+    align-self: flex-start;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background: linear-gradient(135deg, #0066cc 0%, #0044aa 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    border-top: 3px solid #0099ff;
+}
+
+.footer p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 1.3rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: var(--primary-color);
+    transform: scale(1.2) translateY(-3px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, var(--primary-color), var(--medical-green));
+        padding: 2rem;
+        gap: 1rem;
+    }
+
+    .hero {
+        padding: 80px 1.5rem;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-social {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .medical-credentials {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-timeline {
+        padding: 0;
+    }
+
+    .medical-timeline::before {
+        left: 10px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        direction: ltr !important;
+    }
+
+    .timeline-item:nth-child(even) {
+        direction: ltr !important;
+    }
+
+    .timeline-content {
+        direction: ltr !important;
+    }
+
+    .timeline-date {
+        text-align: left !important;
+        justify-content: flex-start !important;
+        margin-left: 50px;
+        margin-bottom: 1rem;
+    }
+
+    .timeline-marker {
+        left: 0;
+    }
+
+    .medical-journey .section-title {
+        font-size: 2rem;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 1.5rem !important;
+    }
+
+    section {
+        padding: 60px 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .skills-grid,
+    .medical-skills {
+        grid-template-columns: 1fr;
+    }
+
+    .about-stats,
+    .medical-metrics {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .stat-box {
+        padding: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .skill-tag {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .degree-capsule {
+        padding: 1.5rem;
+    }
+
+    .achievement-card {
+        padding: 1.5rem;
+    }
+
+    .medal-icon {
+        font-size: 2.5rem;
+    }
+
+    .contact-item {
+        flex-wrap: wrap;
+    }
+
+    .contact-form {
+        padding: 1.5rem !important;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.section-title i {
+    margin-right: 0.5rem;
+    color: var(--accent-color);
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .contact-form,
+    .btn {
+        display: none;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Notification Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-200px) translateX(100px) scale(1.3);
+        opacity: 0;
+    }
+}
+
+.notification {
+    border-radius: 10px;
+}
+
+.footer {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #033d52 100%);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 1.5rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #e6f3ff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        gap: 0;
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1.5rem;
+    }
+
+    .hero {
+        padding: 50px 1rem;
+        margin-top: 70px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-social {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .about-info {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-timeline::before {
+        left: 0;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .timeline-item:nth-child(even) {
+        direction: ltr;
+    }
+
+    .timeline-date {
+        text-align: left;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer .container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 30px 1rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .nav-menu {
+        gap: 0;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .education-grid,
+    .achievements-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-box,
+    .info-item {
+        padding: 1rem;
+    }
+}
